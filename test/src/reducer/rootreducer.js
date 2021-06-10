@@ -1,20 +1,17 @@
 
 const initialState = {
-    count :0 
+  todos: []
 }
 
 function rootreducer  (state = initialState, action)  {
-    console.log('reducer', state, action);
+ 
    
-    switch(action.type) {
-      case 'INCREMENT':
+   switch(action.type) {
+      case 'ADD_TODO':
         return {
-          count: state.count + 1}
-       
-      case 'DECREMENT':
-        return {
-          count: state.count - 1}
-        
+          ...state, todos:state.todos.concat(action.payload)
+         }
+         
       
       default:
         return state;
